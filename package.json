@@ -1,0 +1,23 @@
+{
+  "name": "node_logger",
+  "version": "1.0.0",
+  "description": "their is different log levels the lower the number the higher\r server it is",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TurkeyAbdo/node_logger.git"
+  },
+  "keywords": [],
+  "author": "example_user <example-user@example.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TurkeyAbdo/node_logger/issues"
+  },
+  "homepage": "https://github.com/TurkeyAbdo/node_logger#readme",
+  "dependencies": {
+    "winston": "^3.8.1"
+  }
+}

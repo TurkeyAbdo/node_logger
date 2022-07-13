@@ -4,7 +4,8 @@
   "description": "their is different log levels the lower the number the higher\r server it is",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "dev":"NODE_ENV=development nodemon index.js"
   },
   "repository": {
     "type": "git",

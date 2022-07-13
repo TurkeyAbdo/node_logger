@@ -1,21 +1,13 @@
-const { createLogger, format, transports } = require('winston');
+const buildDevLogger = require('./dev-logger')
+const buildProdLogger = require("./prod-logger");
 
-const logFormat = format.printf(({ level, message, timestamp ,stack}) => {
-  return `${timestamp} ${level}: ${stack || message}`;
-});
+let logger=  null;
 
-const logger = createLogger({
-    level:process.env.LEVEL || 'debug',
-    format:format.combine(
-        format.colorize(),
-        format.timestamp({format:'YYYY-MM-DD HH:mm:ss'}),
-        format.errors({stack:true}),
-        logFormat,
-    ),
-    defaultMeexta:{service:'user-service'},
-    transports:[
-        new transports.Console()
-    ],
-})
+if(process.env.NODE_END === 'development') {
+    logger = buildDevLogger();
+}else{
+    logger = buildProdLogger();
+}
 
-module.exports = logger;
+
+module.exports =logger;

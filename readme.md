@@ -63,4 +63,9 @@ const logger = createLogger({
 });
 ```
 
+##### most populer loggers
+DATADOG https://datadog.com/
+LOGGLY  https://www.solarwinds.com/
+SPLUNK https://embargo.splunk.com/
+
 https://github.com/winstonjs/winston <br/>

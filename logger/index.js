@@ -1,14 +1,20 @@
-const winston = require('winston')
+const { createLogger, format, transports } = require('winston');
 
-const logger = winston.createLogger({
+const logFormat = format.printf(({ level, message, timestamp ,stack}) => {
+  return `${timestamp} ${level}: ${stack || message}`;
+});
+
+const logger = createLogger({
     level:process.env.LEVEL || 'debug',
-    format:winston.format.combine(
-        winston.format.colorize(),
-        winston.format.simple()
+    format:format.combine(
+        format.colorize(),
+        format.timestamp({format:'YYYY-MM-DD HH:mm:ss'}),
+        format.errors({stack:true}),
+        logFormat,
     ),
-    // defaultMeta:{service:'user-service'},
+    defaultMeexta:{service:'user-service'},
     transports:[
-        new winston.transports.Console()
+        new transports.Console()
     ],
 })
 
